@@ -1,9 +1,27 @@
+import { notFound } from "next/navigation";
+
+export const dynamicParams = true; //sets a 404 if there's no content
+
+export async function generateStaticParams() {
+  const res = await fetch("http://localhost:4000/tickets/");
+
+  const tickets = await res.json();
+
+  return tickets.map((ticket) => ({
+    id: ticket.id,
+  }));
+}
+
 async function getTicket(id) {
   const res = await fetch("http://localhost:4000/tickets/" + id, {
     next: {
       revalidate: 60, //use 0 to opt out of using cache
     },
   });
+
+  if (!res.ok) {
+    notFound();
+  }
 
   return res.json();
 }
