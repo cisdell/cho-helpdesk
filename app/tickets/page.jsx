@@ -13,7 +13,6 @@ export default function Tickets() {
           </p>
         </div>
       </nav>
-
       <Suspense fallback={<Loading />}>
         <TicketList />
       </Suspense>
