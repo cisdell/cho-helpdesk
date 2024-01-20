@@ -15,8 +15,8 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.17",
-    "eslint": "^8",
     "eslint-config-next": "14.0.4",
+    "eslint-plugin-react": "^7.33.2",
     "json-server": "^1.0.0-alpha.21",
     "live-server": "^1.2.2",
     "postcss": "^8.4.33",
