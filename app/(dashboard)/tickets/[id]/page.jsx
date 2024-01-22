@@ -2,6 +2,17 @@ import { notFound } from "next/navigation";
 
 export const dynamicParams = true; //sets a 404 if there's no content
 
+export async function generationMetadata({ params }) {
+  const id = params.id;
+
+  const res = await fetch(`http://localhost:4000/tickets/${id}`);
+  const ticket = await res.json();
+
+  return {
+    title: `Cho Helpdesk | ${ticket.title}`,
+  };
+}
+
 export async function generateStaticParams() {
   const res = await fetch("http://localhost:4000/tickets/");
 
