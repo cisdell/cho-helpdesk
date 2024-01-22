@@ -20,12 +20,14 @@ export default function CreateForm() {
       priority,
       user_email: "cisdell@gmail.com",
     };
+
     const res = await fetch("http://localhost:4000/tickets", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newTicket),
     });
     if (res.status === 201) {
+      router.refresh();
       router.push("/tickets");
     }
   };
