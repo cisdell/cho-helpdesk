@@ -1,5 +1,6 @@
 "use client";
 import AuthForm from "../AuthForm";
+// import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 
 export default function Login() {
   const handleSubmit = async (e, email, password) => {
