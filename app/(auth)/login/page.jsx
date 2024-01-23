@@ -6,7 +6,7 @@ export default function Login() {
   const handleSubmit = async (e, email, password) => {
     e.preventDefault();
 
-    console.log("user login ", email, password);
+    console.log("user login in the works");
   };
 
   return (

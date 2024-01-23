@@ -5,7 +5,7 @@ import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useRouter } from "../../../node_modules/next/navigation";
 
 export default function Signup() {
-  const router = useRouter;
+  const router = useRouter();
   const [error, setError] = useState("");
 
   const handleSubmit = async (e, email, password) => {
@@ -26,7 +26,7 @@ export default function Signup() {
       router.push("/verify");
     }
 
-    console.log("user sign up", email, password);
+    // console.log("user sign up", email, password);
   };
 
   return (
