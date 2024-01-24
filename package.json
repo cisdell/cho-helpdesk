@@ -17,6 +17,7 @@
     "@supabase/auth-helpers-nextjs": "^0.8.7",
     "@supabase/supabase-js": "^2.39.3",
     "autoprefixer": "^10.4.17",
+    "encoding": "^0.1.13",
     "eslint-config-next": "14.0.4",
     "eslint-plugin-react": "^7.33.2",
     "json-server": "^1.0.0-alpha.21",
