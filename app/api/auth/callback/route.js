@@ -1,6 +1,6 @@
-import { createRouteHandlerClient } from "../../../../node_modules/@supabase/auth-helpers-nextjs/dist/index";
+import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
-import { NextResponse } from "../../../../node_modules/next/server";
+import { NextResponse } from "next/server";
 
 export async function GET(request) {
   const url = new URL(request.url);
