@@ -9,7 +9,6 @@ async function getTickets() {
   if (error) {
     console.log(error.message);
   }
-
   return data;
 }
 
