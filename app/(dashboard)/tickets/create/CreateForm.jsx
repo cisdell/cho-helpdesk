@@ -1,5 +1,4 @@
 "use client";
-
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -19,7 +18,6 @@ export default function CreateForm() {
       title,
       body,
       priority,
-      user_email: "mario@netninja.dev",
     };
 
     const res = await fetch("http://localhost:3000/api/tickets", {
@@ -28,17 +26,22 @@ export default function CreateForm() {
       body: JSON.stringify(newTicket),
     });
 
+    // console.log(res);
     const json = await res.json();
 
-    // if (json.error) {
-    //   console.log(error.message);
-    // }
+    if (json.error) {
+      console.log(json.error.message);
+    }
     if (json.data) {
       router.refresh();
       router.push("/tickets");
     }
-  };
 
+    // if (res.status === 201) {
+    //   router.refresh();
+    //   router.push("/tickets");
+    // }
+  };
   return (
     <form onSubmit={handleSubmit} className="w-1/2">
       <label>
@@ -51,21 +54,24 @@ export default function CreateForm() {
         />
       </label>
       <label>
-        <span>Title:</span>
+        <span>Body:</span>
         <textarea
           required
           onChange={(e) => setBody(e.target.value)}
           value={body}
         />
       </label>
-      <label>
-        <span>Priority:</span>
-        <select onChange={(e) => setPriority(e.target.value)} value={priority}>
-          <option value="low">Low Priority</option>
-          <option value="medium">Medium Priority</option>
-          <option value="high">High Priority</option>
-        </select>
-      </label>
+      <span>Priority:</span>
+      <select
+        onChange={(e) => {
+          setPriority(e.target.value);
+        }}
+        value={priority}
+      >
+        <option value="low">Low Priority</option>
+        <option value="medium">Medium Priority</option>
+        <option value="high">High Priority</option>
+      </select>
       <button className="btn-primary" disabled={isLoading}>
         {isLoading && <span>Adding...</span>}
         {!isLoading && <span>Add Ticket</span>}
