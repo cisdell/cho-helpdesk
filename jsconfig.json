@@ -1,8 +1,14 @@
 {
   "compilerOptions": {
+    "baseUrl": "./",
     "module": "ES6",
     "jsx": "preserve",
-    "checkJs": true
-  },
-  "exclude": ["node_modules", "**/node_modules/*"]
+    "checkJs": true,
+    "paths": {
+      "@supabase/auth-helpers-nextjs/*": [
+        "node_modules/@supabase/auth-helpers-nextjs/dist/*"
+      ]
+    }
+  }
+  // "exclude": ["node_modules", "**/node_modules/*"]
 }
