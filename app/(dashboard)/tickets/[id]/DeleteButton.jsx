@@ -1,9 +1,11 @@
 "use client";
-import { useState } from "react";
+// import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { TiDelete } from "react-icons/ti";
 import { useTransition } from "react";
+import { deleteTicket } from "../actions";
 
+//icons & UI
+import { TiDelete } from "react-icons/ti";
 export default function DeleteButton({ id }) {
   const [isPending, startTransition] = useTransition();
   const [isLoading, setIsLoading] = useState(false);
