@@ -1,9 +1,11 @@
 "use client";
 import { useState } from "react";
-import { TiDelete } from "react-icons/ti";
 import { useRouter } from "next/navigation";
+import { TiDelete } from "react-icons/ti";
+import { useTransition } from "react";
 
 export default function DeleteButton({ id }) {
+  const [isPending, startTransition] = useTransition();
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
   const handleClick = async () => {
@@ -25,14 +27,18 @@ export default function DeleteButton({ id }) {
     }
   };
   return (
-    <button className="btn-primary" onClick={handleClick} disabled={isLoading}>
-      {isLoading && (
+    <button
+      className="btn-primary"
+      onClick={() => startTransition(() => deleteTicket(id))}
+      disabled={isPending}
+    >
+      {isPending && (
         <>
           <TiDelete />
           Deleting...
         </>
       )}
-      {!isLoading && (
+      {!isPending && (
         <>
           <TiDelete />
           Delete Ticket
