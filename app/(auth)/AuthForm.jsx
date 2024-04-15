@@ -9,7 +9,7 @@ export default function AuthForm({ handleSubmit }) {
   return (
     <form onSubmit={(e) => handleSubmit(e, email, password)}>
       <label>
-        <span></span>
+        <span>Email</span>
         <input
           type="email"
           onChange={(e) => setEmail(e.target.value)}
