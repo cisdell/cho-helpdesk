@@ -22,7 +22,7 @@ export default function Login() {
     });
     console.log("user login in the works");
     if (error) {
-      serError(error.message);
+      setError(error.message);
     }
     if (!error) {
       router.push("/");
